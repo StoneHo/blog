@@ -16,6 +16,7 @@ Flask-PageDown==0.1.4
 Flask-Script==0.6.6
 Flask-SQLAlchemy==1.0
 Flask-WTF==0.9.4
+Flask-SSLify==0.1.5
 ForgeryPy==0.1
 gunicorn==19.6.0
 html5lib==0.9999999
