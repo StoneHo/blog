@@ -209,7 +209,7 @@ class User(UserMixin, db.Model):
             return u'早上好！一天之计在于晨。加油!%s %s' %(b, a)
         elif 11 <= b < 14:
             return u'中午好！要吃饱一点哦...%s %s' %(b, a)
-        elif 14 =< b < 19:
+        elif 14 <= b < 19:
             return u'下午好！累了吗？%s %s' %(b, a)
         else:
             return u'晚上好！是时候放松一下啦!%s %s' %(b, a)
@@ -301,7 +301,7 @@ class AnonymousUser(AnonymousUserMixin):
             return u'早上好！一天之计在于晨。加油!%s %s' %(b, a)
         elif 11 <= b < 14:
             return u'中午好！要吃饱一点哦...%s %s' %(b, a)
-        elif 14 =< b < 19:
+        elif 14 <= b < 19:
             return u'下午好！累了吗？%s %s' %(b, a)
         else:
             return u'晚上好！是时候放松一下啦!%s %s' %(b, a)
