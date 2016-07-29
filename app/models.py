@@ -204,15 +204,15 @@ class User(UserMixin, db.Model):
         a = datetime.now()
         b = int(a.strftime('%H'))
         if b <= 5:
-            return u'夜深了，请注意休息...'
+            return u'夜深了，请注意休息...%s' %b
         elif 5 < b <= 11:
-            return u'早上好！一天之计在于晨。加油!'
+            return u'早上好！一天之计在于晨。加油!%s' %b
         elif 11 < b <= 14:
-            return u'中午好！要吃饱一点哦...'
+            return u'中午好！要吃饱一点哦...%s' %b
         elif 14 < b <= 19:
-            return u'下午好！累了吗？'
+            return u'下午好！累了吗？%s' %b
         else:
-            return u'晚上好！是时候放松一下啦!'
+            return u'晚上好！是时候放松一下啦!%s' %b
 
     def is_administrator(self):
         return self.can(Permission.ADMINISTER)
@@ -296,15 +296,15 @@ class AnonymousUser(AnonymousUserMixin):
         a = datetime.now()
         b = int(a.strftime('%H'))
         if b <= 5:
-            return u'夜深了，请注意休息...'
+            return u'夜深了，请注意休息...%s' %b
         elif 5 < b <= 11:
-            return u'早上好！一天之计在于晨。加油!'
+            return u'早上好！一天之计在于晨。加油!%s' %b
         elif 11 < b <= 14:
-            return u'中午好！要吃饱一点哦...'
+            return u'中午好！要吃饱一点哦...%s' %b
         elif 14 < b <= 19:
-            return u'下午好！累了吗？'
+            return u'下午好！累了吗？%s' %b
         else:
-            return u'晚上好！是时候放松一下啦!'
+            return u'晚上好！是时候放松一下啦!%s' %b
 
 
 login_manager.anonymous_user = AnonymousUser
