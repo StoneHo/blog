@@ -1,4 +1,5 @@
-from datetime import datetime
+# -*- coding:utf-8 -*-
+from datetime import *
 import hashlib
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
@@ -199,6 +200,20 @@ class User(UserMixin, db.Model):
         return self.role is not None and \
             (self.role.permissions & permissions) == permissions
 
+    def time(self):
+        a = datetime.now()
+        b = int(a.strftime('%H'))
+        if b <= 5:
+            return u'夜深了，请注意休息...'
+        elif 5 < b <= 11:
+            return u'早上好！一天之计在于晨。加油!'
+        elif 11 < b <= 14:
+            return u'中午好！要吃饱一点哦...'
+        elif 14 < b <= 19:
+            return u'下午好！累了吗？'
+        else:
+            return u'晚上好！是时候放松一下啦!'
+
     def is_administrator(self):
         return self.can(Permission.ADMINISTER)
 
@@ -276,6 +291,21 @@ class AnonymousUser(AnonymousUserMixin):
 
     def is_administrator(self):
         return False
+
+    def time(self):
+        a = datetime.now()
+        b = int(a.strftime('%H'))
+        if b <= 5:
+            return u'夜深了，请注意休息...'
+        elif 5 < b <= 11:
+            return u'早上好！一天之计在于晨。加油!'
+        elif 11 < b <= 14:
+            return u'中午好！要吃饱一点哦...'
+        elif 14 < b <= 19:
+            return u'下午好！累了吗？'
+        else:
+            return u'晚上好！是时候放松一下啦!'
+
 
 login_manager.anonymous_user = AnonymousUser
 
