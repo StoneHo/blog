@@ -205,7 +205,7 @@ class User(UserMixin, db.Model):
         b = int(a.strftime('%H'))
         if b < 5:
             return u'夜深了，请注意休息...%s %s' %(b, a)
-        elif 5 =< b < 11:
+        elif 5 <= b < 11:
             return u'早上好！一天之计在于晨。加油!%s %s' %(b, a)
         elif 11 <= b < 14:
             return u'中午好！要吃饱一点哦...%s %s' %(b, a)
@@ -297,7 +297,7 @@ class AnonymousUser(AnonymousUserMixin):
         b = int(a.strftime('%H'))
         if b < 5:
             return u'夜深了，请注意休息...%s %s' %(b, a)
-        elif 5 =< b < 11:
+        elif 5 <= b < 11:
             return u'早上好！一天之计在于晨。加油!%s %s' %(b, a)
         elif 11 <= b < 14:
             return u'中午好！要吃饱一点哦...%s %s' %(b, a)
